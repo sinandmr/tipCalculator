@@ -1,0 +1,225 @@
+:root {
+  --primary-color: hsl(183, 100%, 15%);
+  --secondary-color: hsl(172, 67%, 45%);
+  --light-cyan: hsl(173, 61%, 77%);
+  --light-gray: hsl(203, 50%, 97%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --bg-color: hsl(185, 41%, 84%);
+  --white: #fff;
+  --fs-sm: 1rem;
+  --fs-mid: 1.5rem;
+  --fs-large: 2rem;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.active {
+  background-color: var(--secondary-color) !important;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: var(--fs-mid);
+  background-color: var(--bg-color);
+}
+
+@media (min-width: 920px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+body h3 {
+  font-size: var(--fs-sm);
+  color: var(--grayish-cyan);
+}
+
+body input {
+  width: 100%;
+  height: 2.875rem;
+  padding-right: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--light-gray);
+  font-family: "Space Mono", monospace;
+  font-size: var(--fs-mid);
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+body input:focus {
+  outline: none;
+  border: 2px solid var(--secondary-color);
+}
+
+body .container {
+  background-color: var(--white);
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+@media (min-width: 920px) {
+  body .container {
+    max-width: 57.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body .container .form {
+    margin-right: 3rem;
+  }
+  body .container .form .num-people {
+    margin-bottom: 0rem;
+  }
+  body .container .result {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+body .container .input {
+  position: relative;
+}
+
+body .container .input .icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+body .container .btn {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  text-align: center;
+  font-weight: 700;
+  line-height: 2.875rem;
+  height: 2.875rem;
+  color: var(--white);
+  border-radius: 0.25rem;
+}
+
+body .container .btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+body .container .bill {
+  margin-bottom: 2.5rem;
+}
+
+body .container .bill .title {
+  margin-bottom: 0.25rem;
+}
+
+body .container .select-tip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+body .container .select-tip .title {
+  width: 100%;
+}
+
+body .container .select-tip .btn {
+  width: calc(50% - 0.5rem);
+}
+
+body .container .select-tip input {
+  width: calc(50% - 0.5rem);
+}
+
+body .container .num-people {
+  margin-bottom: 2.5rem;
+}
+
+body .container .num-people .title {
+  margin-bottom: 0.25rem;
+}
+
+body .container .result {
+  width: 100%;
+  padding: 2rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+body .container .result .btn {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  display: block;
+}
+
+body .container .result .btn:hover {
+  background-color: var(--light-cyan);
+}
+
+body .container .result .result-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .container .result .result-number {
+  font-size: var(--fs-large);
+  color: var(--secondary-color);
+}
+
+body .container .result .person {
+  font-size: 0.75rem;
+  color: var(--grayish-cyan);
+}
+/*# sourceMappingURL=main.css.map */

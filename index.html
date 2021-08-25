@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.svg" alt="" class="logo" />
+    </header>
+    <div class="container">
+      <div class="form">
+        <div class="bill">
+          <h3 class="title">Bill</h3>
+          <div class="input">
+            <input type="text" name="bill" id="bill" />
+            <img src="images/icon-dollar.svg" alt="dollar" class="icon" />
+          </div>
+        </div>
+        <div class="select-tip">
+          <h3 class="title">Select Tip %</h3>
+          <a href="#" class="btn active">5%</a>
+          <a href="#" class="btn">10%</a>
+          <a href="#" class="btn">15%</a>
+          <a href="#" class="btn">25%</a>
+          <a href="#" class="btn">50%</a>
+          <input
+            type="text"
+            name="custom-tip"
+            class="custom-tip"
+            id="custom-tip"
+            placeholder="Custom"
+          />
+        </div>
+        <div class="num-people">
+          <h3 class="title">Number of People</h3>
+          <div class="input">
+            <input type="text" name="num-people" id="num-people" value="1" />
+            <img src="images/icon-person.svg" alt="person" class="icon" />
+          </div>
+        </div>
+      </div>
+      <div class="result">
+        <div>
+          <div class="result-list">
+            <span
+              >Tip Amount<br />
+              <p class="person">/ person</p>
+            </span>
+            <span id="tip-amount" class="result-number">$0.00</span>
+          </div>
+          <div class="result-list">
+            <span
+              >Total<br />
+              <p class="person">/ person</p>
+            </span>
+            <span id="total" class="result-number">$0.00</span>
+          </div>
+        </div>
+        <a href="#" class="btn" id="reset">RESET</a>
+      </div>
+    </div>
+    <script src="./src/js/app.js"></script>
+  </body>
+</html>
