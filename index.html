@@ -11,6 +11,19 @@
     />
     <link rel="stylesheet" href="dist/css/main.css" />
     <title>Frontend Mentor | Tip calculator app</title>
+    <style>
+      /* Hide Arrows From Input Number */
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* Firefox */
+      input[type='number'] {
+        -moz-appearance: textfield;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -21,19 +34,19 @@
         <div class="bill">
           <h3 class="title">Bill</h3>
           <div class="input">
-            <input type="text" name="bill" id="bill" />
+            <input type="number" min="0" name="bill" id="bill" />
             <img src="images/icon-dollar.svg" alt="dollar" class="icon" />
           </div>
         </div>
         <div class="select-tip">
-          <h3 class="title">Select Tip %</h3>
+          <h3 class="title">Select Tip</h3>
           <a href="#" class="btn active">5%</a>
           <a href="#" class="btn">10%</a>
           <a href="#" class="btn">15%</a>
           <a href="#" class="btn">25%</a>
           <a href="#" class="btn">50%</a>
           <input
-            type="text"
+            type="number"
             name="custom-tip"
             class="custom-tip"
             id="custom-tip"
@@ -43,7 +56,13 @@
         <div class="num-people">
           <h3 class="title">Number of People</h3>
           <div class="input">
-            <input type="text" name="num-people" id="num-people" value="1" />
+            <input
+              type="number"
+              min="1"
+              name="num-people"
+              id="num-people"
+              placeholder="1"
+            />
             <img src="images/icon-person.svg" alt="person" class="icon" />
           </div>
         </div>
