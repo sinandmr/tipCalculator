@@ -96,14 +96,16 @@ customTip.addEventListener('input', e => {
   e.target.value.includes(',')
     ? (percent = +e.target.value.replace(',', '.') / 100)
     : (percent = e.target.value / 100);
-
+  if (e.target.value.slice(-1) === '') return;
   calculate();
 });
+
 bill.addEventListener('input', e => {
   // ',' problem fixed
   e.target.value.includes(',')
     ? (initBill = +e.target.value.replace(',', '.'))
     : (initBill = e.target.value);
+  if (e.target.value.slice(-1) === '') return;
   calculate();
 });
 
