@@ -1,5 +1,5 @@
-'use strict';
 // init
+'use strict';
 const bill = document.querySelector('#bill');
 const btnContainer = document.querySelector('.select-tip');
 const btn = document.querySelectorAll('.btn');
@@ -12,10 +12,12 @@ const resetBtn = document.querySelector('#reset');
 let percent = 0.05;
 let initBill = 0;
 let peopleCount = 1;
+amountTip.textContent = formatNumber(0);
+total.textContent = formatNumber(0);
 
-// ***************************************************************** //
+// ***** Functions ***** //
+
 // Tip select
-
 function tipPercent(arg) {
   if (!arg.innerHTML) return; // NaN is blocking
   percent = parseFloat(arg.innerHTML) / 100;
@@ -50,52 +52,64 @@ const selectTip = function (e) {
     });
   }
 };
-// ***************************************************************** //
+
 // Calculate Tip
 function calculate() {
   const tip = (initBill * percent) / peopleCount;
-  const totalMoney = ((+initBill + tip) / peopleCount).toFixed(2);
-  amountTip.textContent = '$' + tip.toFixed(2);
-  total.textContent = `$${totalMoney}`;
+  const totalMoney = (+initBill + tip) / peopleCount;
+  amountTip.textContent = formatNumber(tip);
+  total.textContent = formatNumber(totalMoney);
 }
-// ***************************************************************** //
+
 // Reset
 function reset(e) {
   e.preventDefault();
   bill.value = '';
   people.value = 1;
-  amountTip.textContent = '$0.00';
-  total.textContent = '$0.00';
+  amountTip.textContent = formatNumber(0);
+  total.textContent = formatNumber(0);
   initBill = 0;
   peopleCount = 1;
   customTip.value = '';
+  btn.forEach(el => {
+    el.textContent !== '5%'
+      ? el.classList.remove('active')
+      : el.classList.add('active');
+  });
 }
-// ***************************************************************** //
-// Event Listeners
+
+// Internationalizing Numbers
+function formatNumber(number) {
+  return new Intl.NumberFormat(navigator.language, {
+    style: 'currency',
+    currency: 'USD',
+  }).format(number);
+}
+
+// ***** Event Listeners ***** //
 resetBtn.addEventListener('click', reset);
+
 btnContainer.addEventListener('click', selectTip);
 
 customTip.addEventListener('input', e => {
-  percent = e.target.value / 100;
+  // ',' problem fixed
+  e.target.value.includes(',')
+    ? (percent = +e.target.value.replace(',', '.') / 100)
+    : (percent = e.target.value / 100);
+
   calculate();
 });
-
 bill.addEventListener('input', e => {
-  initBill = e.target.value;
+  // ',' problem fixed
+  e.target.value.includes(',')
+    ? (initBill = +e.target.value.replace(',', '.'))
+    : (initBill = e.target.value);
   calculate();
 });
 
 people.addEventListener('input', e => {
   // fractional human values blocked
-
-  e.target.value.includes(',')
-    ? (peopleCount = parseFloat(e.target.value))
-    : (peopleCount = e.target.value);
-
-  if (Number.isInteger(peopleCount)) {
-    calculate();
-  } else {
-    peopleCount = Math.floor(peopleCount);
-    calculate();
-  }
+  peopleCount = parseInt(e.target.value, 10);
+  if (e.target.value === '') peopleCount = 1; // If the number of people is not specified, it is taken as 1.
+  calculate();
 });
