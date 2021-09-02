@@ -10,5 +10,5 @@ Developed using DOM elements and JavaScript.
 * JavaScript
 
 ## Live
-  * [Tip Calculator](https://sinandmr.github.io/Tip-Calculator/)
+  * [Tip Calculator](https://sinandmr.github.io/tipCalculator/)
 
